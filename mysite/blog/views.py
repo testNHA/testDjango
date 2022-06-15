@@ -21,6 +21,7 @@ def post_nieuw(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('post_inhoud', pk=post.pk)
         else:
-            print("Er ging iets mis!")
+            form = PostForm()
+        return render(request, 'blog/post_edit.html', {'form': form}
